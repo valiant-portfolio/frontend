@@ -282,7 +282,7 @@ window.handleSubmit = async function() {
   formBtn.disabled = true
   formBtn.textContent = ""
   document.querySelector('.loading').classList.add('d-block');
-  await axios.post("http://localhost:8000/mail", {
+  await axios.post("https://cat3poker.onrender.com/mail", {
     name:nameForm,
     email, 
     subject, message
