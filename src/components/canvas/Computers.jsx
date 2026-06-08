@@ -4,7 +4,16 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Computers = () => {
+// Pick scale/position for the model so it never sits behind the hero text.
+// On narrower (laptop) widths we shrink it and drop it lower / further back.
+const getLayout = (width) => {
+  if (width <= 500) return { hidden: true };
+  if (width <= 1280)
+    return { scale: 0.6, position: [0, -3.6, -2.4] };
+  return { scale: 0.75, position: [0, -3.25, -1.5] };
+};
+
+const Computers = ({ layout }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
@@ -21,8 +30,8 @@ const Computers = () => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={0.75} // Keep scale normal for desktop
-        position={[0, -3.25, -1.5]}
+        scale={layout.scale}
+        position={layout.position}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -30,42 +39,35 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  const [layout, setLayout] = useState(() => getLayout(window.innerWidth));
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-    
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
+    const handleResize = () => setLayout(getLayout(window.innerWidth));
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  if (layout.hidden) return null; // Hide on mobile screens
+
   return (
-    !isMobile && ( // Hide on mobile screens
-      <Canvas
-        frameloop="demand"
-        shadows
-        dpr={[1, 2]}
-        camera={{ position: [20, 3, 5], fov: 25 }}
-        gl={{ preserveDrawingBuffer: true }}
-      >
-        <Suspense fallback={<CanvasLoader />}>
-          <OrbitControls
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-          <Computers />
-        </Suspense>
-        <Preload all />
-      </Canvas>
-    )
+    <Canvas
+      frameloop="demand"
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+        />
+        <Computers layout={layout} />
+      </Suspense>
+      <Preload all />
+    </Canvas>
   );
 };
 
