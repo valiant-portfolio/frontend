@@ -17,13 +17,34 @@ const Hero = () => {
         </div>
 
         <div className="mt-28 md:mt-5 lg:5">
+          <span className='inline-flex items-center gap-2 rounded-full border border-[#915EFF]/40 bg-[#915EFF]/10 px-4 py-1.5 text-[13px] sm:text-[14px] text-[#dfd9ff]'>
+            <span className='w-2 h-2 rounded-full bg-green-400 animate-pulse' />
+            Open to international & visa-sponsored roles
+          </span>
+
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm <span className='text-[#915EFF]'>Victor</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop modern, user <br/>
-            interfaces, web2, <br/> web3 applications and Mobile applications
+            Senior Full-Stack Developer, <br className='sm:block hidden' />
+            iGaming &amp; AI Engineer. I build provably-fair gaming, <br className='sm:block hidden' />
+            real-time, and AI-powered systems end-to-end.
           </p>
+
+          <div className='mt-6 flex flex-wrap gap-4'>
+            <a
+              href='#projects'
+              className='rounded-xl bg-[#915EFF] px-6 py-3 text-[15px] font-bold text-white shadow-md shadow-primary transition-transform hover:scale-105'
+            >
+              View My Work
+            </a>
+            <a
+              href='#contact'
+              className='rounded-xl border border-[#915EFF]/60 px-6 py-3 text-[15px] font-bold text-white transition-colors hover:bg-[#915EFF]/15'
+            >
+              Get in Touch
+            </a>
+          </div>
         </div>
       </div>
 

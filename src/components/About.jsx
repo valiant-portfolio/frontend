@@ -72,9 +72,13 @@ const About = () => {
       </div>
 
       <p ref={paragraphRef} className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">
-        I'm a skilled software developer with experience in Python, PHP, Solidity, JavaScript, and expertise in frameworks 
-        like React, Svelte, Node.js, Next.js, Nest.js, Django, Laravel and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, 
-        scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
+        I'm a senior full-stack engineer with 8+ years building and shipping production systems
+        across iGaming, fintech, AI, and consumer mobile. I specialise in real-time multiplayer
+        architecture, transaction-safe wallet engines, provably-fair gaming infrastructure, and AI
+        orchestration on the Anthropic Claude API stack. I design and build production backends in
+        Node.js and Python and ship full products end-to-end — backend, frontend, mobile, and
+        deployment — having delivered 20+ applications across iGaming, fintech, SaaS, and AI
+        verticals. Open to international relocation and visa-sponsored roles.
       </p>
 
       <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-10">

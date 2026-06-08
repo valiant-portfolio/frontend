@@ -1,5 +1,3 @@
-
-import { c } from 'maath/dist/index-43782085.esm';
 import {
   logo,
   backend,
@@ -39,22 +37,23 @@ import {
   cyclixLogo,
 } from '../assets'
 
-
-// Import Tekisky separately
-import nano from "../assets/company/logo_small.webp";
-
+// Company logos served from the public/ folder
+const fatserLogo = "/img/fatser_logo.jpg";
+const highscoreLogo = "/img/highscore_logo.jpg";
+const lovemeetLogo = "/img/lovemeetapp_logo.png";
 
 export const navLinks = [
-
-
   {
     id: "about",
     title: "About",
-    
   },
   {
     id: "work",
-    title: "Work",
+    title: "Experience",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -64,20 +63,20 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Frontend Developer",
+    title: "Full-Stack Developer",
     icon: web,
+  },
+  {
+    title: "iGaming & Web3 Engineer",
+    icon: creator,
+  },
+  {
+    title: "AI / RAG Engineer",
+    icon: backend,
   },
   {
     title: "Mobile Developer",
     icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Block Chain Developer",
-    icon: creator,
   },
 ];
 
@@ -106,8 +105,6 @@ const technologies = [
     name: "framer",
     icon: framer,
   },
-
- 
   {
     name: "Three JS",
     icon: threejs,
@@ -148,53 +145,74 @@ const technologies = [
     name: "MySql",
     icon: mysql,
   },
-
   {
     name: "git",
     icon: git,
   },
- 
-
 ];
 
 const experiences = [
   {
-    title: "Full-Stack Developer",
-    company_name: "Nano Games",
-    icon: nano,
-    iconBg: "black",
-    date: "Jan 2020 - 2023",
+    title: "Backend Engineer — Data, AI & Search",
+    company_name: "Fatser AS (via Deel)",
+    icon: fatserLogo,
+    iconBg: "#ffffff",
+    date: "2026 - Present",
     points: [
-      "Developing and maintaining web applications using MERN technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Designed and implemented provably-fair gaming systems utilizing advanced cryptographic techniques.",
-      "Formulated all in-house games, guaranteeing their fairness through cryptographic generation of server seed, client seed, nonce, and hash seeds.",
+      "Own the multi-tenant PostgreSQL schema and Row-Level Security (RLS) design for a marketplace spanning 20+ vertical portals on shared infrastructure, enforcing tenant isolation at the database layer.",
+      "Architect the AI orchestration layer that routes tasks across multiple model providers (incl. the Anthropic Claude API), manages context windows, and enforces per-tenant prompt boundaries.",
+      "Build tenant-aware semantic search on pgvector with 1024-dim Voyage AI embeddings, filtering by portal at retrieval time so results never leak across tenants.",
+      "Implement an API-middleware cost-protection and quota system on Upstash Redis, enforcing hard token and request limits before any model call.",
+    ],
+  },
+  {
+    title: "Senior Full-Stack Developer",
+    company_name: "highzcore.tech",
+    icon: highscoreLogo,
+    iconBg: "#ffffff",
+    date: "2018 - Present",
+    points: [
+      "Delivered 20+ production applications for international clients across iGaming, AI, fintech, and SaaS, owning architecture through to deployment.",
+      "Architected a custom real-money casino platform with provably-fair games, real-time WebSocket multiplayer, transaction-safe wallets, and operator admin dashboards.",
+      "Built a multi-market algorithmic trading bot on MT5/Deriv covering 4 Volatility Index markets, running 10 optimised strategies with 60–71% backtested win rates.",
+      "Shipped a production RAG pipeline integrating the Claude API with a Pinecone vector store, Function Calling, PII filtering, and token-aware context management.",
     ],
   },
   {
     title: "Full-Stack Developer",
-    company_name: "Cyclix Games",
-    icon: cyclixLogo,
-    iconBg: "rgb(29, 24, 54)",
-    date: "Feb 2023 -2024",
+    company_name: "Lovemeetapp.com",
+    icon: lovemeetLogo,
+    iconBg: "#ffffff",
+    date: "2023 - 2026",
     points: [
-      "Developing and maintaining web applications using MERN technologies.",
-      "Orchestrated end-to-end development of web applications, from Figma design to production deployment.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Developed all in-house games, ensuring their integrity through cryptographic generation of server seed, client seed, nonce, and hash seeds.",
+      "Built and maintained the full stack of a dating and social-matchmaking web platform on Next.js, Node.js, and MongoDB/Supabase.",
+      "Developed user onboarding and authentication, profile and matching features, and real-time in-app messaging.",
+      "Owned deployment, performance optimisation, and ongoing feature delivery.",
     ],
   },
   {
-    title: "Full-Stack Developer",
-    company_name: "Ezcryptox Exchange",
-    icon: ezcryptox,
+    title: "Senior iGaming Frontend Developer — Contract",
+    company_name: "Multiple International Clients",
+    icon: nanoPort,
+    iconBg: "#1d1836",
+    date: "2020 - 2023",
+    points: [
+      "Led frontend development for multiple live casino and sports-betting platforms.",
+      "Integrated third-party game providers (Pragmatic Play, Evolution Gaming, Spribe, Hacksaw) via API.",
+      "Built real-time WebSocket game engines for crash games, live-dealer tables, and slot machines.",
+      "Implemented KYC flows, responsible-gambling tools, and operator admin dashboards.",
+    ],
+  },
+  {
+    title: "Full-Stack Developer — Freelance",
+    company_name: "Independent",
+    icon: creator,
     iconBg: "#383E56",
-    date: "Feb 2024 - 2025",
+    date: "2016 - 2018",
     points: [
-      "Developing and maintaining web applications using MERN technologies.",
-      "Engineered and deployed scalable web applications utilizing React.js and Node.js.",
-      "Conceptualized and developed decentralized applications, integrating blockchain technology to enhance user experiences..",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Delivered eCommerce, marketplace, and business-directory platforms for clients.",
+      "Built hireusalocal.com — a multi-role marketplace on Supabase with Postgres Row-Level Security and role-based dashboards.",
+      "Built earnestmall.com — a multi-vendor eCommerce platform with integrated payment processing.",
     ],
   },
 ];
@@ -228,24 +246,87 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Tekisky Mart",
+    name: "Provably-Fair Gaming Platform",
     description:
-      "Tekisky Mart is a web-based platform that allows users to search, explore, and purchase a wide range of products from various providers, offering a seamless and efficient shopping experience.",
+      "8-game real-money multiplayer platform (Texas Hold'em, Baccarat, Slots, Mines, Lottery) with a Web3 provably-fair system on Solana + HMAC-SHA256 DRBG, multi-level agent hierarchy, atomic MongoDB wallet, and enterprise risk controls — delivered to Telegram Mini App, iOS, and Android.",
     tags: [
       {
-        name: "react",
+        name: "Solana",
         color: "blue-text-gradient",
       },
       {
-        name: "tailwind",
-        color: "white-text-gradient",
+        name: "Socket IO",
+        color: "green-text-gradient",
       },
       {
-        name: "node",
+        name: "PixiJS",
         color: "pink-text-gradient",
       },
       {
-        name: "emailJs",
+        name: "MongoDB",
+        color: "white-text-gradient",
+      },
+    ],
+    image: nanoPort,
+    source_code_link: "https://nanogame.io/",
+  },
+  {
+    name: "Algorithmic Trading Bot — MT5 + Deriv",
+    description:
+      "Multi-market trading system running live on a Google Cloud VM across 4 Volatility Index markets with 10 backtested strategies (60–71% win rates). Built with Python, the MT5 API, MongoDB, and real-time execution.",
+    tags: [
+      {
+        name: "Python",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "MT5 API",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: carrent,
+    source_code_link: "https://github.com/",
+  },
+  {
+    name: "RAG AI Coaching Platform",
+    description:
+      "Production retrieval-augmented coaching platform built on the Claude API with a Pinecone vector store, Function Calling, PII filtering, structured JSON output, and tenant-aware embeddings.",
+    tags: [
+      {
+        name: "Claude API",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Pinecone",
+        color: "green-text-gradient",
+      },
+      {
+        name: "LangChain",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: project3,
+    source_code_link: "https://github.com/",
+  },
+  {
+    name: "Goodtings Mobile App",
+    description:
+      "React Native consumer app with full App Store and Google Play deployment, RevenueCat in-app purchases, push notifications, and persistent local storage.",
+    tags: [
+      {
+        name: "React Native",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Expo",
+        color: "white-text-gradient",
+      },
+      {
+        name: "RevenueCat",
         color: "green-text-gradient",
       },
     ],
@@ -253,9 +334,34 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
+    name: "Cyclix Games",
+    description:
+      "Crypto casino platform with provably-fair slots, crash, and roulette, real-time WebSocket multiplayer, and Web3 wallet integration.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Nest Js",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Web3 js",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "PixiJS",
+        color: "white-text-gradient",
+      },
+    ],
+    image: cyclix,
+    source_code_link: "https://github.com/",
+  },
+  {
     name: "GearXpert",
     description:
-      "GearXpert is your ultimate destination for premium auto parts and accessories, Whether you're an automobile enthusiast or a professional, find everything you need to upgrade, repair.",
+      "Premium auto-parts and accessories marketplace where enthusiasts and professionals can find everything they need to upgrade and repair their vehicles.",
     tags: [
       {
         name: "Svelte",
@@ -272,126 +378,6 @@ const projects = [
     ],
     image: gearXpert,
     source_code_link: "https://github.com/",
-  },
-  {
-    name: "Nano Games",
-    description:
-      "Nano Games is a web-based platform that allows users to play a variety of games, including slots, crash, and roulette, all while utilizing cryptocurrency for transactions.",
-    tags: [
-      {
-        name: "Next Js",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Socket IO",
-        color: "green-text-gradient",
-      },
-      {
-        name: "PixiJS",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "FabricJS",
-        color: "white-text-gradient",
-      },
-      {
-        name: "Payment Gateway",
-        color: "white-text-gradient",
-      },
-      {
-        name: "HTML5 Canvas",
-        color: "green-text-gradient",
-      },
-    ],
-    image: nanoPort,
-    source_code_link: "https://nanogame.io/",
-  },
-  {
-    name: "GoGroove-Ecommerce",
-    description:
-      "Go-Groove is your ultimate destination for premium products across various categories. Whether you're a savvy shopper or a professional, enhance, and simplify your lifestyle—all in one place!",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "express",
-        color: "white-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "white-text-gradient",
-      },
-    ],
-    image: project3,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Cyclix Games",
-    description:
-      "Cyclix Games is a web-based platform that allows users to play a variety of games, including slots, crash, and roulette, all while utilizing cryptocurrency for transactions.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Socket IO",
-        color: "white-text-gradient",
-      },
-      {
-        name: "Nest Js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "FiberJS",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "HTML5 Canvas",
-        color: "white-text-gradient",
-      },
-      {
-        name: "Web3 js",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "PixiJS",
-        color: "green-text-gradient",
-      },
-    ],
-    image: cyclix,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Morent",
-    description:
-      "More is a car renting website you can rent cars. Rent your Dream Car Around the World We provide the best car options. We have a wide range of cars to choose from, so you can find the perfect one for your needs.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "white-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: carrent,
-    source_code_link: "https://github.com",
   },
 ];
 
